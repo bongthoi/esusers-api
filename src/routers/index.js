@@ -102,7 +102,7 @@ router.post("/user/search", async(req, res) => {
 		result=await userService.getUserByName(req.body.keyword);
 
 		console.log(method+" -->success");
-		res.json({"status":"success","data":result[0]});
+		res.json({"status":"success","data":result});
 	} catch (error) {
 		console.log(method+" -->failed");
 		res.json({"status":"failed"});
