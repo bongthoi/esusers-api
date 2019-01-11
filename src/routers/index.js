@@ -23,7 +23,7 @@ router.get("/user/list", async(req, res) => {
 		result=await userService.getAll();
 
 		console.log(method+" -->success");
-		res.json({"status":"success","result":result});
+		res.json({"status":"success","data":result});
 	} catch (error) {
 		console.log(method+" -->failed");
 		res.json({"status":"failed"});
@@ -40,7 +40,7 @@ router.post("/user/add",async(req,res)=>{
 			let result=await userService.insert(user);
 
 			console.log(method+" -->success");
-			res.json({"status":"success","result":result});
+			res.json({"status":"success","data":result});
 		} catch (error) {
 			console.log(method+" -->failed");
 			res.json({"status":"failed"});			
@@ -55,7 +55,7 @@ router.get("/user/getUserByID/:_userID",async(req,res)=>{
 		let result= await userService.getUserByID(req.params._userID);
 
 		console.log(method+" -->success");
-		res.json({"status":"success","result":result[0]});	
+		res.json({"status":"success","data":result[0]});	
 	} catch (error) {
 		console.log(method+" -->failed");
 		res.json({"status":"failed"});			
@@ -71,7 +71,7 @@ router.put("/user/update/:_userID",async(req,res)=>{
 		let result= await userService.update(user);
 
 		console.log(method+" -->success");
-		res.json({"status":"success","result":result});
+		res.json({"status":"success","data":result});
 	} catch (error) {
 		console.log(method+" -->failed");
 		res.json({"status":"failed"});			
@@ -86,7 +86,7 @@ router.delete("/user/delete/:_userID",async(req,res)=>{
 		let result= await userService.delete(req.params._userID);
 		
 		console.log(method+" -->success");
-		res.json({"status":"success","result":result});
+		res.json({"status":"success","data":result});
 	} catch (error) {
 		console.log(method+" -->failed");
 		res.json({"status":"failed"});			
@@ -102,7 +102,7 @@ router.post("/user/search", async(req, res) => {
 		result=await userService.getUserByName(req.body.keyword);
 
 		console.log(method+" -->success");
-		res.json({"status":"success","result":result[0]});
+		res.json({"status":"success","data":result[0]});
 	} catch (error) {
 		console.log(method+" -->failed");
 		res.json({"status":"failed"});

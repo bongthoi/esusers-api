@@ -29,6 +29,7 @@
 1. User Manager
 - [getAll()-GET] http://localhost:3000/api/user/list
 - [addUser()-POST] http://localhost:3000/api/user/add/[{"name","email","phone"}]
+- [getUserByID()-GET] http://localhost:3000/api/user/getUserByID/:_userID
 - [updateUser()-PUT] http://localhost:3000/api/user/update/:_userID[{"name","email","phone"}]
 - [deleteUser()-DELETE] http://localhost:3000/api/user/delete/:_userID
-- [addUser()-POST] http://localhost:3000/api/user/search/:keyword
+- [searchUser()-POST] http://localhost:3000/api/user/search/:keyword
