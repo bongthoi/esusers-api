@@ -21,7 +21,7 @@ app.use(function(req, res, next) {
     next();
 });
 
-app.use('/', routers);
+app.use(SERVER_CONFIG.api_url, routers);
 
 
 /** */
