@@ -1,6 +1,7 @@
 import express from 'express';
 import UserService from "../services/UserService";
-import  User    from    "../models/User";
+import User    from    "../models/User";
+import httpStatus from "../../configs/httpStatus.json";
 
 /** */
 let router = express.Router();
@@ -11,7 +12,7 @@ router.get("/", (req, res) => {
 	let method="controllers/home";
 	console.log(method+" ===>start");
 
-	res.json({"Project Name":"esusers-api"});
+	res.json({"status":httpStatus.success,"Project Name":"esusers-api"});
 });
 
 router.get("/user/list", async(req, res) => {
@@ -23,10 +24,10 @@ router.get("/user/list", async(req, res) => {
 		result=await userService.getAll();
 
 		console.log(method+" -->success");
-		res.json({"status":"success","data":result});
+		res.json({"status":httpStatus.success,"data":result});
 	} catch (error) {
 		console.log(method+" -->failed");
-		res.json({"status":"failed"});
+		res.json({"status":httpStatus.failed});
 	}
 
 });
@@ -40,10 +41,10 @@ router.post("/user/add",async(req,res)=>{
 			let result=await userService.insert(user);
 
 			console.log(method+" -->success");
-			res.json({"status":"success","data":result});
+			res.json({"status":httpStatus.success,"data":result});
 		} catch (error) {
 			console.log(method+" -->failed");
-			res.json({"status":"failed"});			
+			res.json({"status":httpStatus.failed});			
 		}
 });
 
@@ -55,10 +56,10 @@ router.get("/user/getUserByID/:_userID",async(req,res)=>{
 		let result= await userService.getUserByID(req.params._userID);
 
 		console.log(method+" -->success");
-		res.json({"status":"success","data":result[0]});	
+		res.json({"status":httpStatus.success,"data":result[0]});	
 	} catch (error) {
 		console.log(method+" -->failed");
-		res.json({"status":"failed"});			
+		res.json({"status":httpStatus.failed});			
 	}
 });
 
@@ -71,10 +72,10 @@ router.put("/user/update/:_userID",async(req,res)=>{
 		let result= await userService.update(user);
 
 		console.log(method+" -->success");
-		res.json({"status":"success","data":result});
+		res.json({"status":httpStatus.success,"data":result});
 	} catch (error) {
 		console.log(method+" -->failed");
-		res.json({"status":"failed"});			
+		res.json({"status":httpStatus.failed});			
 	}
 });
 
@@ -86,10 +87,10 @@ router.delete("/user/delete/:_userID",async(req,res)=>{
 		let result= await userService.delete(req.params._userID);
 		
 		console.log(method+" -->success");
-		res.json({"status":"success","data":result});
+		res.json({"status":httpStatus.success,"data":result});
 	} catch (error) {
 		console.log(method+" -->failed");
-		res.json({"status":"failed"});			
+		res.json({"status":httpStatus.failed});			
 	}
 });
 
@@ -102,10 +103,10 @@ router.post("/user/search", async(req, res) => {
 		result=await userService.getUserByName(req.body.keyword);
 
 		console.log(method+" -->success");
-		res.json({"status":"success","data":result});
+		res.json({"status":httpStatus.success,"data":result});
 	} catch (error) {
 		console.log(method+" -->failed");
-		res.json({"status":"failed"});
+		res.json({"status":httpStatus.failed});
 	}
 
 });
