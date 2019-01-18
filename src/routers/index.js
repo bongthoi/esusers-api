@@ -9,14 +9,14 @@ let userService=new UserService();
 
 /**public */
 router.get("/", (req, res) => {
-	let method="controllers/home";
+	let method="routers/home";
 	console.log(method+" ===>start");
 
 	res.json({"status":httpStatus.success,"Project Name":"esusers-api"});
 });
 
 router.get("/user/list", async(req, res) => {
-	let method="controllers/list";
+	let method="routers/list";
 	console.log(method+" ===>start");
 
 	let result;
@@ -33,7 +33,7 @@ router.get("/user/list", async(req, res) => {
 });
 
 router.post("/user/add",async(req,res)=>{
-	let method="controller/user/add";
+	let method="routers/user/add";
 	console.log(method+" ===>start");
 	
 	let user=new User(null,req.body.name,req.body.email,req.body.phone);
@@ -49,7 +49,7 @@ router.post("/user/add",async(req,res)=>{
 });
 
 router.get("/user/getUserByID/:_userID",async(req,res)=>{
-	let method="Controller/user/update";
+	let method="routers/user/update";
 	console.log(method+" ===>start");
 
 	try {
@@ -64,7 +64,7 @@ router.get("/user/getUserByID/:_userID",async(req,res)=>{
 });
 
 router.put("/user/update/:_userID",async(req,res)=>{
-	let method="Controller/user/update";
+	let method="routers/user/update";
 	console.log(method+" ===>start");
 
 	try {
@@ -80,7 +80,7 @@ router.put("/user/update/:_userID",async(req,res)=>{
 });
 
 router.delete("/user/delete/:_userID",async(req,res)=>{
-	let method="Controller/user/delete";
+	let method="routers/user/delete";
 	console.log(method+" ===>start");
 
 	try {
@@ -95,7 +95,7 @@ router.delete("/user/delete/:_userID",async(req,res)=>{
 });
 
 router.post("/user/search", async(req, res) => {
-	let method="controller/list";
+	let method="routers/list";
 	console.log(method+" ===>start");
 
 	let result;
